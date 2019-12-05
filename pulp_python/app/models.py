@@ -4,7 +4,7 @@ from django.contrib.postgres.fields import JSONField
 from django.db import models
 
 from pulpcore.plugin.models import (
-    Content, Model, Publication, PublicationDistribution, Remote, Repository
+    Content, BaseModel, Publication, PublicationDistribution, Remote, Repository
 )
 
 log = getLogger(__name__)
@@ -33,7 +33,7 @@ class PythonRepository(Repository):
         default_related_name = "%(app_label)s_%(model_name)s"
 
 
-class Classifier(Model):
+class Classifier(BaseModel):
     """
     Custom tags for classifier.
 
@@ -56,7 +56,7 @@ class Classifier(Model):
     )
 
 
-class ProjectSpecifier(Model):
+class ProjectSpecifier(BaseModel):
     """
     A specifier of a python project.
 
